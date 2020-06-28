@@ -19,20 +19,7 @@ export class List extends React.Component<any, any> {
 
   componentDidMount() {
 
-    const itemsRef = firebase.database().ref('cardDetails');
-    itemsRef.on('value', (snapshot) => {
-      let items = snapshot.val();
-      let updatedCardDetails = []
-      if (!!items) {
-        for (let [cardID, value] of Object.entries(items)) {
-          if (!!value) {
-            let newValue = {...value as any , cardID}
-            updatedCardDetails.push(newValue);
-          }
-        }
-        this.setState({ cardDetails: updatedCardDetails });
-      }
-    })
+
   }
 
   displayCard() {
